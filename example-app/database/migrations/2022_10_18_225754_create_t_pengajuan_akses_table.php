@@ -14,17 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('t_pengajuan_akses', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('userid');
-            $table->string('role');
-            $table->string('kddept');
-            $table->string('kdunit')->nullable();
-            $table->string('kdsatker')->nullable();
-            $table->string('pdf_surat');
-            $table->string('status',[0,1])->default(0);
-            $table->string('created_at')->nullable();
-            $table->string('updated_at')->nullable();
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('userid',100);
+            $table->string('role',50);
+            $table->char('kddept',3)->nullable()->default('NULL');
+            $table->char('kdunit',2)->nullable()->default('NULL');
+            $table->char('kdsatker',6)->nullable()->default('NULL');
+            $table->string('pdf_surat',200);
+            $table->tinyInteger('status',1)->default('0');
+            $table->datetime('created_at');
+            $table->datetime('updated_at')->nullable()->default('NULL');
+            $table->primary('id');
         });
     }
 

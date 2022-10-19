@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('t_user_groups', function (Blueprint $table) {
-            $table->id('ídusergroup');
-            $table->string('nmusergroup')->nullable();
-            $table->string('menu')->nullable();
-            $table->string('kwdept')->nullable();
-            $table->string('kwunit')->nullable();
-            $table->string('kwlokasi')->nullable();
-            $table->timestamps();
+            $table->string('idusergroup',35)->default('');
+            $table->string('nmusergroup',100)->default('');
+            $table->text('menu')->nullable()->default('NULL');
+            $table->string('kwdept',200)->default('');
+            $table->string('kwunit',200)->default('');
+            $table->string('kwlokasi',200)->default('');
+            $table->primary('idusergroup');
         });
     }
 

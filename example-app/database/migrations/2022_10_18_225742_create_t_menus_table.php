@@ -14,15 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('t_menus', function (Blueprint $table) {
-            $table->unique( array('idmenu','thang') );
-            $table->id('idmenu');
-            $table->string('thang')->nullable();
-            $table->string('menu')->nullable();
-            $table->string('link')->nullable();
-            $table->string('icon')->nullable();
-            $table->string('urutan')->nullable();
-            $table->string('aktif',[0,1])->default(0);
-            $table->timestamps();
+            $table->char('thang',4);
+            $table->char('idmenu',6)->default('');
+            $table->string('menu',30)->default('');
+            $table->string('link',60)->default('');
+            $table->char('icon',50)->default('');
+            $table->integer('urutan',2)->default('0');
+            $table->integer('aktif',1)->default('0');
+            $table->primary(['thang','idmenu']);
         });
     }
 

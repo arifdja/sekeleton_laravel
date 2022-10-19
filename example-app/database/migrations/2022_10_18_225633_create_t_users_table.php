@@ -14,25 +14,25 @@ return new class extends Migration
     public function up()
     {
         Schema::create('t_users', function (Blueprint $table) {
-            $table->id('iduser');
-            $table->string('jenisakun',[0,1])->default(0);
-            $table->string('namauser')->nullable();
-            $table->string('nip')->nullable();
-            $table->string('pangkat')->nullable();
-            $table->string('golongan')->nullable();
-            $table->string('jabatan')->nullable();
-            $table->string('wordpass')->nullable();
-            $table->string('idusergroup')->nullable();
-            $table->string('defaultusergroup');
-            $table->string('kddept')->nullable();
-            $table->string('kdunit')->nullable();
-            $table->string('kdsatker')->nullable();
-            $table->string('kdlokasi')->nullable();
-            $table->string('notelp')->nullable();
-            $table->string('email')->nullable();
-            $table->string('counter',[0,1])->default(0);
-            $table->string('wordpassasli')->nullable();
-            $table->timestamps();
+            $table->string('iduser',30);
+            $table->char('jenisakun')->default('0');
+            $table->string('namauser',200)->nullable();
+            $table->string('nip',59)->nullable();
+            $table->string('pangkat',300)->nullable();
+            $table->string('golongan',300)->nullable();
+            $table->string('jabatan',300)->nullable();
+            $table->string('wordpass',96)->nullable();
+            $table->string('idusergroup',300);
+            $table->string('defaultusergroup',10);
+            $table->char('kddept',3)->nullable();
+            $table->char('kdunit',2)->nullable();
+            $table->char('kdsatker',6)->nullable();
+            $table->char('kdlokasi',2)->nullable();
+            $table->string('notelp',60)->nullable();
+            $table->string('email',300)->nullable();
+            $table->integer('counter')->nullable()->default(0);
+            $table->string('wordpassasli',15)->nullable()->default('NULL');
+            $table->primary('iduser');
         });
     }
 
