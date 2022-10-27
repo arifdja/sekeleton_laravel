@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class PartiSatker extends Model
 {
     use HasFactory;
-    protected $table = 't_user';
-    protected $primaryKey = 'iduser';
-    public $incrementing = false;
-    protected $keyType = 'string';
+    protected $table = 'tb_parti_satker';
+    protected $primaryKey = 'id';
+    public $incrementing = true;
+    // protected $keyType = 'string';
     public $timestamps = true;
 }

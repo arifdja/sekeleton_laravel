@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_user', function (Blueprint $table) {
-            $table->id();
+        Schema::create('t_user_group', function (Blueprint $table) {
+            $table->primary('idusergroup');
+            $table->string('idusergroup',35);
+            $table->string('nmusergroup',100);
+            $table->string('menu',500);
+            $table->string('kwdept',200);
+            $table->string('kwunit',200);
+            $table->string('kwsatker',200);
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_user');
+        Schema::drop('t_user_group');
     }
 };
